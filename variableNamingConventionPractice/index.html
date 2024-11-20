@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable Naming Convention Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.quiz-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #555;
+}
+
+label {
+    display: block;
+    margin: 8px 0;
+    color: #333;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.submit-btn:hover {
+    background: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Variable Naming Convention Quiz</h1>
+        <form id="quiz-form">
+            <!-- Question 1 -->
+            <div class="question">
+                <h3>1. Which of the following is a valid variable name in JavaScript?</h3>
+                <label><input type="radio" name="q1" value="A"> A) 1variable</label>
+                <label><input type="radio" name="q1" value="B"> B) @variable</label>
+                <label><input type="radio" name="q1" value="C"> C) variable_name</label>
+                <label><input type="radio" name="q1" value="D"> D) var-name</label>
+            </div>
+            
+            <!-- Question 2 -->
+            <div class="question">
+                <h3>2. Which convention is commonly used for naming variables in JavaScript?</h3>
+                <label><input type="radio" name="q2" value="A"> A) snake_case</label>
+                <label><input type="radio" name="q2" value="B"> B) camelCase</label>
+                <label><input type="radio" name="q2" value="C"> C) PascalCase</label>
+                <label><input type="radio" name="q2" value="D"> D) kebab-case</label>
+            </div>
+            
+            <!-- Question 3 -->
+            <div class="question">
+                <h3>3. Which of these is NOT a good practice for variable naming?</h3>
+                <label><input type="radio" name="q3" value="A"> A) Using descriptive names</label>
+                <label><input type="radio" name="q3" value="B"> B) Following naming conventions</label>
+                <label><input type="radio" name="q3" value="C"> C) Using camelCase</label>
+                <label><input type="radio" name="q3" value="D"> D) Using special characters</label>
+            </div>
+            
+            <!-- Question 4 -->
+            <div class="question">
+                <h3>4. Which of the following is a reserved keyword and cannot be used as a variable name?</h3>
+                <label><input type="radio" name="q4" value="A"> A) let</label>
+                <label><input type="radio" name="q4" value="B"> B) myVariable</label>
+                <label><input type="radio" name="q4" value="C"> C) _temp</label>
+                <label><input type="radio" name="q4" value="D"> D) $value</label>
+            </div>
+            
+            <!-- Question 5 -->
+            <div class="question">
+                <h3>5. What will happen if you declare a variable name with a space in JavaScript?</h3>
+                <label><input type="radio" name="q5" value="A"> A) It will work</label>
+                <label><input type="radio" name="q5" value="B"> B) It will be ignored</label>
+                <label><input type="radio" name="q5" value="C"> C) It will throw a syntax error</label>
+                <label><input type="radio" name="q5" value="D"> D) It will merge the words</label>
+            </div>
+
+            <button type="button" class="submit-btn" id="submit-btn">Check Score</button>
+        </form>
+        <div id="score-container" class="score-container"></div>
+    </div>
+
+
+
+    <script>
+        document.getElementById("submit-btn").addEventListener("click", function () {
+    // Correct answers
+    const correctAnswers = {
+        q1: "C",
+        q2: "B",
+        q3: "D",
+        q4: "A",
+        q5: "C",
+    };
+
+    // Get user's answers
+    let score = 0;
+    let totalQuestions = Object.keys(correctAnswers).length;
+
+    for (let question in correctAnswers) {
+        const userAnswer = document.querySelector(`input[name="${question}"]:checked`);
+        if (userAnswer && userAnswer.value === correctAnswers[question]) {
+            score++;
+        }
+    }
+
+    // Display the score
+    const scoreContainer = document.getElementById("score-container");
+    scoreContainer.innerHTML = `<h2>Your Score: ${score}/${totalQuestions}</h2>`;
+    scoreContainer.style.display = "block";
+});
+
+    </script>
+</body>
+</html>
